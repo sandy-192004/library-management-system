@@ -2,10 +2,15 @@ const express = require("express");
 const app = express();
 const port = 5000;
 
-app.get('/', (req,res) => {
-    res.json({msg:'hello all'});
-})
+const books = require("./router/books.router.js");
 
-app.listen(5000 , (req,res)=>{
-    console.log(`server runs on http://localhost:5000`);
-})
+app.get("/", (req,res) => {
+    res.json({msg: "hello all"});
+});
+
+
+app.use("/books", books);
+
+app.listen(port, (err) => {
+    console.log(`server runs on http://localhost:${port}`);
+});
