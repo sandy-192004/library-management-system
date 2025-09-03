@@ -1,24 +1,18 @@
 const express = require("express");
+const { BookCreated,  BookFetched,BookUpdated, BookDeleted } = require("../controllers/books.controller");
 const router = express.Router();
 
+
 //create a book
-router.post('/', (req,res) =>{
-  res.send("book is created");
-})
+router.post("/",BookCreated );
 
 //fetch a book
-router.get('/:id', (req,res) =>{
-  res.send("book get fetched");
-})
+router.get("/", BookFetched);
 
 //update a book
-router.put('/:id', (req,res) =>{
-  res.send("books are updated");
-})
+router.put("/:id", BookUpdated);
 
 //delete a book
-router.delete('/:id', (req,res) => {
-  res.send("book got deleted");
-})
+router.delete("/:id",BookDeleted );
 
 module.exports = router;
