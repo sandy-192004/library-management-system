@@ -1,5 +1,5 @@
 const express = require("express");
-const { BookCreated,  BookFetched,BookUpdated, BookDeleted } = require("../controllers/books.controller");
+const { BookCreated,  BookFetched,BookUpdated, BookDeleted } = require("../controllers/books.controller.js");
 const router = express.Router();
 
 
@@ -7,10 +7,10 @@ const router = express.Router();
 router.post("/",BookCreated );
 
 //fetch a book
-router.get("/", BookFetched);
+router.get("/:id", BookFetched);
 
 //update a book
-router.put("/:id", BookUpdated);
+router.put("/", BookUpdated);
 
 //delete a book
 router.delete("/:id",BookDeleted );
