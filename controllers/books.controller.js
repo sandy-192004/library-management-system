@@ -23,9 +23,24 @@ catch(error){
 }
 
 };
+const BookFetched = async (req, res) => {
+  try {
+    
+    const book = await Book.findById(req.params.id);
+    res.json(book);
+  } catch (error) {
+    return res.status(500).json({ msg: error.message });
+  }
+};
+const BookFetchedByTitle = async (req, res) => {
+  try {
+    const book = await Book.findOne({title:req.params.title});
+    res.json(book);
+}
+catch{
+  return res.status(500).json({ msg: error.message });
 
-const BookFetched = (req,res) =>{
-  res.send("book get fetched");
+}
 }
 
 const BookUpdated = (req,res) =>{
@@ -38,6 +53,7 @@ const BookDeleted = (req,res) => {
 module.exports = {
   BookCreated,
   BookFetched,
+  BookFetchedByTitle,
   BookUpdated,
   BookDeleted
 };

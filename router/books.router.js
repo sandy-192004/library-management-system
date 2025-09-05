@@ -1,5 +1,5 @@
 const express = require("express");
-const { BookCreated,  BookFetched,BookUpdated, BookDeleted } = require("../controllers/books.controller.js");
+const { BookCreated,  BookFetched,BookFetchedByTitle,BookUpdated, BookDeleted } = require("../controllers/books.controller.js");
 const router = express.Router();
 
 
@@ -8,6 +8,7 @@ router.post("/",BookCreated );
 
 //fetch a book
 router.get("/:id", BookFetched);
+router.get("/title/:title", BookFetchedByTitle);
 
 //update a book
 router.put("/", BookUpdated);
