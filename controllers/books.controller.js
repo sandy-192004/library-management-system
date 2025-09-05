@@ -1,5 +1,8 @@
 export const BookCreated = (req,res) =>{
-  res.send("book is created");
+  console.log(req.body);
+
+  return res.json(req.body);
+
 }
 
 export const BookFetched = (req,res) =>{
