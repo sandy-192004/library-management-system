@@ -8,10 +8,11 @@ router.post("/",BookCreated );
 
 //fetch a book
 router.get("/:id", BookFetched);
+//fetch a book by title
 router.get("/title/:title", BookFetchedByTitle);
 
 //update a book
-router.put("/", BookUpdated);
+router.put("/:id", BookUpdated);
 
 //delete a book
 router.delete("/:id",BookDeleted );

@@ -43,12 +43,28 @@ catch{
 }
 }
 
-const BookUpdated = (req,res) =>{
-  res.send("books are updated");
+const BookUpdated = async(req,res) =>{
+  try{
+     const updatedBook = await Book.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {new:true}
+  )
+  res.json(updatedBook).save();
 }
-const BookDeleted = (req,res) => {
-  res.send("book got deleted");
-}   
+catch(error){
+  res.status(400).json({msg:error.message});
+}
+ 
+}
+const BookDeleted = async (req, res) => {
+  try {
+    const deletedBook = await Book.findByIdAndDelete(req.params.id);
+     res.json(deletedBook);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 
 module.exports = {
   BookCreated,
