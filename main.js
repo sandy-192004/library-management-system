@@ -5,7 +5,7 @@ const port = 5000;
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
-const books = require("./router/books.router.js");
+const books = require("./route/books.route.js");
 const connectDB = require("./database/db.js");
 
 app.get("/", (req,res) => {
