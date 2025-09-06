@@ -15,9 +15,10 @@ npm install nodemon
 ### Features Implemented
 
 1.`Add a new book`  
-2.`Search book by name or ID`  
-3.`Update book by ID`  
-4.`Delete book by ID`
+2.`get all books`  
+3.`Search book by name or ID`  
+4.`Update book by ID`  
+5.`Delete book by ID`
 
 ### Running the Project
 
